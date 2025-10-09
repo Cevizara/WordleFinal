@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rečko</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header class="header">
+        <button id="helpButton">
+            <img src="./images/helpbutton_85772.png" alt="Help">
+        </button>
+        <img id="logo" src="./images/LogoReckoPNG.png" alt="Logo">
+        <button id="statsButton">
+            <a ><img src="./images/status_up_icon_243878.png" alt="Stats"></a>
+        </button>
+
+        <div id="statsModal" class="modal">
+            <div id="statsDiv" class="container">
+                <h1>Статистика</h1>
+                <br><br>
+                <div id="generalStats">
+                    <div class="stat-col">
+                    <span>Oдигранe игрe:</span><br>
+                    <span id="gamesPlayed"><strong>0</strong></span>
+                    </div>
+                    <div class="stat-col">
+                    <span>Број победа:</span><br>
+                    <span id="gamesWon"><strong>0</strong></span>
+                    </div>
+                    <div class="stat-col">
+                    <span>Проценат победа:</span><br>
+                    <span id="winPercentage"><strong>0%</strong></span>
+                    </div>
+                </div>
+                <div id="distribution">
+                    <div class="progress">
+                    <strong><p>&nbsp;1&nbsp;&nbsp;&nbsp;</p></strong>
+                    <div class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="10">0</div>
+                    </div>
+                    <div class="progress">
+                    <strong><p>&nbsp;2&nbsp;&nbsp;&nbsp;</p></strong>
+                    <div class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="10">0</div>
+                    </div>
+                    <div class="progress">
+                    <strong><p>&nbsp;3&nbsp;&nbsp;&nbsp;</p></strong>
+                    <div class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="10">0</div>
+                    </div>
+                    <div class="progress">
+                    <strong><p>&nbsp;4&nbsp;&nbsp;&nbsp;</p></strong>
+                    <div class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="10">0</div>
+                    </div>
+                    <div class="progress">
+                    <strong><p>&nbsp;5&nbsp;&nbsp;&nbsp;</p></strong>
+                    <div class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="10">0</div>
+                    </div>
+                    <div class="progress">
+                    <strong><p>&nbsp;6&nbsp;&nbsp;&nbsp;</p></strong>
+                    <div class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="10">0</div>
+                    </div>
+                    <div class="progress">
+                    <strong><p>&nbsp;x&nbsp;&nbsp;&nbsp;</p></strong>
+                    <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" aria-valuenow="10">0</div>
+                    </div>
+                </div>
+                <button id="clearStatsButton" class="btn-outline-secondary btn btn-dark">Обриши статистику</button>
+                <br><br>
+            <span id="CloseStats" class="close" data-modal="statsModal">Назад на игру</span> 
+            </div>
+        </div>
+        <div id="helpModal" class="modal">
+            <div class="modal-content">
+            <p>
+                Добродошли у <strong>РЕЧКО!</strong> Циљ игре је да погодите тајну реч од 5 слова у што мање покушаја.
+                Након сваког покушаја, слова мењају боју као што је описано у наставку:
+                <ul type="none">
+                    <li>
+                        <span class="d-inline-block bg-success rounded-circle" style="width:20px; height:20px;"></span>
+                        слово је на правом месту.
+                    </li>
+                    <li>
+                        <span class="d-inline-block bg-warning rounded-circle" style="width:20px; height:20px;"></span>
+                        слово се налази у речи, али није на правом месту.
+                    </li>
+                    <li>
+                        <span class="d-inline-block bg-secondary rounded-circle" style="width:20px; height:20px;"></span>
+                        слово се не налази у речи.
+                    </li>
+                </ul>
+                Речи уносите помоћу тастатуре на екрану или физичке тастатуре. Када унесете реч, притисните "ENTER" да пошаљете свој покушај.
+                Ако желите да избришете слово, притисните "DELETE".
+                Допуштени су само важећи уноси из речника.
+                Игра се завршава када погодите реч или искористите све покушаје.
+                Срећно!
+            </p>
+            <span class="close" data-modal="helpModal">&times;</span>
+            </div>
+        </div>
+    </header>
+    <hr>
+
+    <div id="game">
+        <div id="board">
+        </div>
+        <div id="keyboard">
+            <div class="keyboard-row">
+                <button class="key">Љ</button>
+                <button class="key">Њ</button>
+                <button class="key">Е</button>
+                <button class="key">Р</button>
+                <button class="key">Т</button>
+                <button class="key">З</button>
+                <button class="key">У</button>
+                <button class="key">И</button>
+                <button class="key">О</button>
+                <button class="key">П</button>
+                <button class="key">Ш</button>
+            </div>
+            <div class="keyboard-row">
+                <button class="key">А</button>
+                <button class="key">С</button>
+                <button class="key">Д</button>
+                <button class="key">Ф</button>
+                <button class="key">Г</button>
+                <button class="key">Х</button>
+                <button class="key">Ј</button>
+                <button class="key">К</button>
+                <button class="key">Л</button>
+                <button class="key">Ч</button>
+                <button class="key">Ћ</button>
+            </div>
+            <div class="keyboard-row">
+                <button class="key wide">Enter</button>
+                <button class="key">Џ</button>
+                <button class="key">Ц</button>
+                <button class="key">В</button>
+                <button class="key">Б</button>
+                <button class="key">Н</button>
+                <button class="key">М</button>
+                <button class="key">Ђ</button>
+                <button class="key">Ж</button>
+                <button class="key wide">Delete</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
